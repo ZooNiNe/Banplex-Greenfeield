@@ -1,0 +1,174 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --app-bg-color: var(--tg-theme-bg-color, #eef4fb);
+  --app-surface-color: var(
+    --tg-theme-secondary-bg-color,
+    rgba(255, 255, 255, 0.84)
+  );
+  --app-surface-strong-color: rgba(255, 255, 255, 0.96);
+  --app-border-color: rgba(15, 23, 42, 0.08);
+  --app-text-color: var(--tg-theme-text-color, #10243b);
+  --app-hint-color: var(--tg-theme-hint-color, #64748b);
+  --app-link-color: var(--tg-theme-link-color, #2563eb);
+  --app-button-color: var(--tg-theme-button-color, #0f766e);
+  --app-button-text-color: var(--tg-theme-button-text-color, #ffffff);
+  --app-accent-color: var(--tg-theme-accent-text-color, #0f766e);
+  --app-destructive-color: var(--tg-theme-destructive-text-color, #dc2626);
+  --app-success-color: #059669;
+  --app-warning-color: #d97706;
+  --app-info-color: #0284c7;
+  color-scheme: light;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 15px;
+}
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply min-h-full;
+  }
+
+  body {
+    @apply m-0 min-h-screen text-[15px];
+    background-image:
+      radial-gradient(circle at top left, rgba(14, 165, 233, 0.08), transparent 32%),
+      radial-gradient(circle at top right, rgba(20, 184, 166, 0.08), transparent 28%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.72), transparent 28%);
+    background-color: var(--tg-theme-bg-color, var(--app-bg-color));
+    color: var(--tg-theme-text-color, var(--app-text-color));
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-semibold tracking-[-0.03em];
+    color: var(--tg-theme-text-color, var(--app-text-color));
+  }
+
+  h1 {
+    @apply text-[1.6rem] leading-[1.15];
+  }
+
+  h2 {
+    @apply text-[1.25rem] leading-[1.2];
+  }
+
+  h3 {
+    @apply text-[1.0625rem] leading-[1.25];
+  }
+
+  h4 {
+    @apply text-base leading-[1.3];
+  }
+
+  p {
+    @apply text-[0.9375rem] leading-6;
+  }
+
+  small {
+    @apply text-xs leading-5;
+    color: var(--app-hint-color);
+  }
+
+  label {
+    @apply text-[0.8125rem] font-medium;
+    color: var(--app-text-color);
+  }
+
+  a {
+    color: var(--app-link-color);
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+    color: var(--tg-theme-text-color, var(--app-text-color));
+    background-color: var(--tg-theme-bg-color, var(--app-bg-color));
+  }
+
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--tg-theme-hint-color, var(--app-hint-color));
+    opacity: 1;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+}
+
+@layer components {
+  .app-shell {
+    background-color: var(--tg-theme-bg-color, var(--app-bg-color));
+    color: var(--tg-theme-text-color, var(--app-text-color));
+  }
+
+  .app-page-surface {
+    border: 1px solid var(--app-border-color);
+    background: var(--app-surface-color);
+    border-radius: 28px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+    backdrop-filter: blur(24px);
+  }
+
+  .app-section-surface {
+    border: 1px solid var(--app-border-color);
+    background: var(--app-surface-strong-color);
+    border-radius: 24px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  }
+
+  .app-kicker {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--app-accent-color);
+  }
+
+  .app-title {
+    margin-top: 0.25rem;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.03em;
+    color: var(--app-text-color);
+  }
+
+  .app-copy {
+    margin-top: 0.25rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--app-hint-color);
+  }
+
+  .app-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border: 1px solid var(--app-border-color);
+    border-radius: 9999px;
+    background: var(--app-surface-strong-color);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: var(--app-hint-color);
+  }
+}
